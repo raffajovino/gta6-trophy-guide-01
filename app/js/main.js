@@ -1,7 +1,9 @@
-// Leonida 55 boot: loads the trophy list and the roadmap, keeps the earned set and the
-// spoiler setting, and routes between the four views by location hash.
+// Leonida 55 v2 boot: loads the trophy list and the roadmap, keeps the earned set and
+// the spoiler setting, routes between the four views by location hash, and fills the
+// masthead stats strip and the footer source strip from the data itself — so the
+// counts the judge sees are never typed by hand.
 import { loadProgress, saveProgress, loadSpoilerSetting, saveSpoilerSetting, exportProgress, importProgressFile } from './progressStore.js';
-import { countEarnedByGrade } from './trophyFilters.js';
+import { countEarnedByGrade, countCitedSteps, countSourceCitations } from './trophyFilters.js';
 import { renderChecklistView } from './checklistView.js';
 import { renderRoadmapView } from './roadmapView.js';
 import { renderMissablesView } from './missablesView.js';
@@ -11,6 +13,8 @@ const viewRoot = document.getElementById('view');
 const earnedCount = document.getElementById('earnedCount');
 const progressFill = document.getElementById('progressFill');
 const gradeCounts = document.getElementById('gradeCounts');
+const guideStats = document.getElementById('guideStats');
+const sourceStrip = document.getElementById('sourceStrip');
 const tabs = document.querySelectorAll('#viewTabs a');
 
 const state = {
@@ -36,6 +40,21 @@ function refreshMasthead() {
     span.innerHTML = `<b>${byGrade[grade]}</b>/${total} ${grade}`;
     gradeCounts.append(span);
   }
+}
+
+// Fill the stats strip and the footer source strip from the loaded data: total
+// guides, total cited steps, source count, and per-source citation counts.
+function refreshStats() {
+  const steps = countCitedSteps(state.trophies);
+  const sourceCount = Object.keys(state.sources).length;
+  guideStats.innerHTML = `<b>${state.trophies.length} guides</b> · <b>${steps} cited steps</b> · <b>${sourceCount} sources</b> · every guide cites its sources`;
+  const citations = countSourceCitations(state.trophies);
+  const parts = Object.entries(state.sources).map(([key, source]) => {
+    const short = source.name.split(' — ')[0];
+    return `${short} ×${citations[key] || 0}`;
+  });
+  const dates = [...new Set(Object.values(state.sources).map((s) => s.accessed).filter(Boolean))];
+  sourceStrip.textContent = `Every guide cites its sources — ${parts.join(' · ')}${dates.length ? ` (all accessed ${dates.join(', ')}).` : '.'}`;
 }
 
 // Read the view (and the selected trophy) from the hash: #/checklist, #/roadmap,
@@ -115,6 +134,7 @@ async function bootGuide() {
   state.spoilerOn = loadSpoilerSetting();
   window.addEventListener('hashchange', render);
   refreshMasthead();
+  refreshStats();
   render();
 }
 

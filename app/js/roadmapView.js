@@ -1,5 +1,6 @@
-// Platinum roadmap view: five stages in order, each with its trophies, its time, and
-// the counts the official descriptions and the cited guides give for it.
+// Platinum roadmap view v2: five stages in order, each with its trophies, its time,
+// a progress bar for the stage, and the counts the official descriptions and the
+// cited guides give for it. Stage notes name the chapters and missions to play.
 export function renderRoadmapView(container, ctx) {
   container.replaceChildren();
 
@@ -13,15 +14,22 @@ export function renderRoadmapView(container, ctx) {
     const card = document.createElement('section');
     card.className = 'stage';
     const earnedInStage = stage.trophyIds.filter((id) => ctx.earned.has(byId.get(id).name)).length;
+    const pct = Math.round((earnedInStage / stage.trophyIds.length) * 100);
 
     const title = document.createElement('h2');
     title.textContent = `Stage ${stage.stage}: ${stage.title}`;
     const meta = document.createElement('p');
     meta.className = 'stage-meta';
-    meta.textContent = `${stage.hours} · ${earnedInStage} of ${stage.trophyIds.length} earned in this stage`;
+    meta.textContent = `${stage.hours} · ${earnedInStage} of ${stage.trophyIds.length} earned in this stage${stage.chapter ? ` · ${stage.chapter}` : ''}`;
+    const bar = document.createElement('div');
+    bar.className = 'stage-bar';
+    const fill = document.createElement('div');
+    fill.className = 'stage-fill';
+    fill.style.width = `${pct}%`;
+    bar.append(fill);
     const note = document.createElement('p');
     note.textContent = stage.note;
-    card.append(title, meta, note);
+    card.append(title, meta, bar, note);
 
     const chips = document.createElement('div');
     chips.className = 'stage-trophies';

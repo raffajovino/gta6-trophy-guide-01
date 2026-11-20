@@ -1,5 +1,7 @@
-// Missables view: the one confirmed missable, flagged from the cited guides, plus the
-// one-time moments worth doing when they come up. Built from the official descriptions.
+// Missables view v2: the one confirmed missable, flagged from the cited guides with
+// its own note from the data, plus the one-time moments worth doing when they come up.
+// Built from the official descriptions — which story chapters and missions, which
+// collectibles and counts, in what order.
 export function renderMissablesView(container, ctx) {
   container.replaceChildren();
 
@@ -15,10 +17,22 @@ export function renderMissablesView(container, ctx) {
   for (const trophy of missables) {
     const card = document.createElement('section');
     card.className = 'stage missable-card';
-    card.innerHTML = `<h2>${trophy.name} <span class="tag missable">Missable</span></h2>
-      <p class="stage-meta">${trophy.grade} · ${trophy.description}</p>
-      <p>${trophy.guide}</p>
-      <p><strong>Sources:</strong> ${trophy.sources.map((key) => ctx.sources[key].name).join(' · ')}</p>`;
+    const title = document.createElement('h2');
+    title.textContent = trophy.name;
+    const tag = document.createElement('span');
+    tag.className = 'tag missable';
+    tag.textContent = 'Missable';
+    title.append(' ', tag);
+    const meta = document.createElement('p');
+    meta.className = 'stage-meta';
+    meta.textContent = `${trophy.grade} · ${trophy.description}`;
+    const note = document.createElement('p');
+    note.textContent = trophy.missableNote || trophy.guide;
+    const guide = document.createElement('p');
+    guide.textContent = trophy.guide;
+    const sources = document.createElement('p');
+    sources.innerHTML = `<strong>Sources:</strong> ${trophy.sources.map((key) => ctx.sources[key].name).join(' · ')}`;
+    card.append(title, meta, note, guide, sources);
     container.append(card);
   }
 

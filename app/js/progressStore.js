@@ -1,5 +1,6 @@
-// Progress store: earned trophies live in localStorage, with export to a file and import back.
-// Nothing leaves the browser; the file the export writes is plain JSON with trophy names.
+// Progress store v2: earned trophies live in localStorage, with export to a file and
+// import back. Nothing leaves the browser; the file the export writes is plain JSON
+// with trophy names. Storage keys stay on the v1 names so a v1 export still imports.
 export const progressStorageKey = 'leonida55-progress-v1';
 export const spoilerStorageKey = 'leonida55-spoiler-v1';
 
@@ -52,13 +53,13 @@ export function exportProgress(earned) {
   setTimeout(() => URL.revokeObjectURL(link.href), 1000);
 }
 
-// Read an exported file back into an earned set. Throws on bad files so the caller can report it.
+// Read an exported file back into an earned set. Throws on bad files so the caller
+// can report it.
 export async function importProgressFile(file, knownNames) {
   const text = await file.text();
   const parsed = JSON.parse(text);
   const names = Array.isArray(parsed) ? parsed : parsed.earned;
   if (!Array.isArray(names)) throw new Error('Not a Leonida 55 progress file.');
   const known = new Set(knownNames);
-  const earned = new Set(names.filter((name) => typeof name === 'string' && known.has(name)));
-  return earned;
+  return new Set(names.filter((name) => typeof name === 'string' && known.has(name)));
 }

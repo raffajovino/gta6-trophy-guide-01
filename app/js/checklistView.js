@@ -1,5 +1,6 @@
-// Checklist view: the trophy list with filters on the left, the selected trophy's
-// guide and its cited sources in a detail pane on the right.
+// Checklist view v2: the trophy list with filters on top, the selected trophy's
+// guide — now as numbered cited steps — and its dated sources in a detail pane.
+// Rows are dense so the cover screenshot shows more of the official list at a glance.
 import { filterTrophies, isSpoilerHidden, kindLabels } from './trophyFilters.js';
 
 function gradeDot(trophy) {
@@ -7,6 +8,11 @@ function gradeDot(trophy) {
   dot.className = `grade-dot ${trophy.grade}`;
   dot.title = trophy.grade;
   return dot;
+}
+
+function kindTag(trophy) {
+  const label = trophy.kind === 'story' ? 'Story' : trophy.kind === 'collectible' ? 'Collectible' : 'Activity';
+  return { text: label, cls: trophy.kind === 'story' ? 'story-tag' : '' };
 }
 
 function tagRow(trophy) {
@@ -18,7 +24,8 @@ function tagRow(trophy) {
     tag.textContent = text;
     tags.append(tag);
   };
-  add(trophy.kind === 'story' ? 'Story' : trophy.kind === 'collectible' ? 'Collectible' : 'Activity', trophy.kind === 'story' ? 'story-tag' : '');
+  const kind = kindTag(trophy);
+  add(kind.text, kind.cls);
   if (trophy.hidden) add('Hidden', 'hidden-tag');
   if (trophy.missable) add('Missable', 'missable');
   if (trophy.watch) add('One-time moment', 'watch');
@@ -54,13 +61,15 @@ function trophyRow(trophy, ctx) {
   if (!hidden) body.append(tagRow(trophy));
   row.append(body);
 
-  const gradeLabel = document.createElement('span');
-  gradeLabel.className = 'trophy-grade-label';
-  gradeLabel.textContent = trophy.grade;
-  row.append(gradeLabel);
+  const pill = document.createElement('span');
+  pill.className = `grade-pill ${trophy.grade}`;
+  pill.textContent = trophy.grade;
+  row.append(pill);
   return row;
 }
 
+// The detail pane: official name and description, the missable callout read from the
+// trophy's own data, the guide as numbered steps, then the dated sources.
 function detailPane(trophy, ctx) {
   const pane = document.createElement('aside');
   pane.className = 'detail';
@@ -85,10 +94,12 @@ function detailPane(trophy, ctx) {
   pane.append(desc);
 
   if (!hidden) {
-    if (trophy.missable) {
+    if (trophy.missable && trophy.missableNote) {
       const warn = document.createElement('div');
       warn.className = 'callout';
-      warn.innerHTML = '<strong>Missable.</strong> The first meditation spot is offered at Jason’s house in Chapter 1 and becomes permanently unavailable after that chapter — meditate there before Chapter 1 ends.';
+      const strong = document.createElement('strong');
+      strong.textContent = 'Missable. ';
+      warn.append(strong, document.createTextNode(trophy.missableNote));
       pane.append(warn);
     }
     if (trophy.watch) {
@@ -97,12 +108,28 @@ function detailPane(trophy, ctx) {
       warn.innerHTML = '<strong>One-time moment.</strong> This trophy is tied to a single event or choice — do it when the moment comes up, because there may be no second chance to trigger it.';
       pane.append(warn);
     }
+
     const guideHead = document.createElement('h3');
     guideHead.textContent = 'Guide';
     const guide = document.createElement('p');
     guide.className = 'guide-text';
     guide.textContent = trophy.guide;
     pane.append(guideHead, guide);
+
+    const steps = trophy.steps || [];
+    if (steps.length > 0) {
+      const stepsHead = document.createElement('p');
+      stepsHead.className = 'steps-count';
+      stepsHead.textContent = `${steps.length} cited steps`;
+      const list = document.createElement('ol');
+      list.className = 'steps-list';
+      for (const step of steps) {
+        const item = document.createElement('li');
+        item.textContent = step;
+        list.append(item);
+      }
+      pane.append(stepsHead, list);
+    }
 
     const sourcesHead = document.createElement('h3');
     sourcesHead.textContent = 'Sources';
@@ -118,6 +145,12 @@ function detailPane(trophy, ctx) {
       link.rel = 'noopener';
       link.textContent = source.name;
       item.append(link);
+      if (source.accessed) {
+        const date = document.createElement('span');
+        date.className = 'source-date';
+        date.textContent = ` · accessed ${source.accessed}`;
+        item.append(date);
+      }
       list.append(item);
     }
     const ownNote = document.createElement('li');

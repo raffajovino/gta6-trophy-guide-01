@@ -1,23 +1,27 @@
 {
   "game": "Grand Theft Auto VI",
   "platform": "PlayStation 5",
-  "list": "the official 55 trophies, 2026-11-18",
+  "list": "the official 55 trophies, checked 2026-11-20",
   "sources": {
     "exophase": {
       "name": "Exophase — GTA 6 trophy list",
-      "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/"
+      "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/",
+      "accessed": "2026-11-20"
     },
     "psnprofiles": {
       "name": "PSNProfiles — GTA 6 trophy list",
-      "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi"
+      "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi",
+      "accessed": "2026-11-20"
     },
     "powerpyx": {
       "name": "PowerPyx — GTA 6 Trophy Guide & Roadmap",
-      "url": "https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/"
+      "url": "https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/",
+      "accessed": "2026-11-20"
     },
     "gtazone": {
       "name": "GTA-Zone — GTA 6 Trophy List",
-      "url": "https://gta-zone.com/news/gta-6-trophies-achievements/"
+      "url": "https://gta-zone.com/news/gta-6-trophies-achievements/",
+      "accessed": "2026-11-20"
     }
   },
   "trophies": [
@@ -30,7 +34,12 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "The platinum lands the moment the other 54 are done — there is no separate task. Work the roadmap in order: story first, then the 100% checklist, then strangers and cleanup, and this pops last. No online trophies exist, so it is all single-player.",
+      "guide": "No separate task hides behind this one — it unlocks the instant the other 54 are earned. Follow the roadmap in order: story, then the 100% checklist, then strangers and cleanup, and this is the last trophy to pop. Every trophy is single-player; there are no online trophies.",
+      "steps": [
+        "Finish the story first (Stages 1–2 of the roadmap).",
+        "Clear the 100% checklist in Stage 3.",
+        "Mop up strangers, collectibles and combat in Stages 4–5 — the platinum pops with the last one."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -42,7 +51,11 @@
       "kind": "story",
       "missable": false,
       "watch": false,
-      "guide": "Finish the opening mission, Gone Fishing — it is the first mission of the game, so this is the first trophy most players earn. Play through the intro; there is nothing to prepare and nothing missable here. It unlocks automatically when the mission ends.",
+      "guide": "Gone Fishing is the opening mission, so this is the first trophy most players earn. Just play the intro through — nothing to prepare, nothing missable. It pops automatically when the mission ends.",
+      "steps": [
+        "Start the game and play the intro.",
+        "Finish the Gone Fishing mission — the trophy unlocks at its end."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -54,7 +67,12 @@
       "kind": "story",
       "missable": false,
       "watch": false,
-      "guide": "Play through Chapter 1 to its end. The chapters run in order, so keep following the story missions and this pops when the chapter closes. Do the first meditation spot at Jason's house before Chapter 1 ends — it is the one spot that can become unavailable (see Positive Mental Attitude).",
+      "guide": "Chapters run in order, so keep clearing story missions until Chapter 1 closes and this pops. One thing before it ends: meditate at the first spot at Jason's house — that spot vanishes after Chapter 1 (see Positive Mental Attitude).",
+      "steps": [
+        "Play the Chapter 1 story missions in order.",
+        "Before the chapter ends, meditate at the first meditation spot at Jason's house.",
+        "Finish the chapter's final mission."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -66,7 +84,11 @@
       "kind": "story",
       "missable": false,
       "watch": false,
-      "guide": "Finish Chapter 2. Story trophies unlock automatically as you complete each chapter's missions, so there is no side requirement. Keep playing the story and it pops at the chapter's end.",
+      "guide": "Chapter trophies pop on their own as the story advances — finish Chapter 2's missions and this unlocks at the end. No side requirement, no collectible, nothing to prepare.",
+      "steps": [
+        "Play through Chapter 2's story missions.",
+        "Finish the chapter's final mission."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -78,7 +100,12 @@
       "kind": "story",
       "missable": false,
       "watch": false,
-      "guide": "Finish Chapter 3. Same as the other chapter trophies: follow the story missions to the end of the chapter. Use the time in Vice City to scan vehicles and study animals — that progress counts toward 100% later.",
+      "guide": "Finish Chapter 3 to earn this one. While you are in Vice City, scan vehicles and study animals whenever you can — that progress feeds the 100% checklist later.",
+      "steps": [
+        "Play through Chapter 3's story missions.",
+        "Scan vehicles and study animals as you travel — it counts toward 100% later.",
+        "Finish the chapter's final mission."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -90,7 +117,11 @@
       "kind": "story",
       "missable": false,
       "watch": false,
-      "guide": "Finish Chapter 4. The last chapter trophy before the finale; it pops when Chapter 4's final mission ends. After this, the final mission and free roam open up.",
+      "guide": "The last chapter trophy before the finale — it pops when Chapter 4's final mission ends. After it, the final mission and free roam open up.",
+      "steps": [
+        "Play through Chapter 4's story missions.",
+        "Finish the chapter's final mission."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -102,7 +133,12 @@
       "kind": "story",
       "missable": false,
       "watch": false,
-      "guide": "Complete the final mission of the story. The story runs five chapters and takes about 60-80 hours; the final mission closes it. After the credits you keep free roam, and the 100% checklist opens.",
+      "guide": "The story runs five chapters and about 60–80 hours; this gold pops when the final mission ends. After the credits, free roam stays open and the 100% checklist unlocks.",
+      "steps": [
+        "Finish Chapters 1–4.",
+        "Complete the final mission.",
+        "After the credits, the 100% checklist opens under Progress, Stats."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -114,7 +150,11 @@
       "kind": "story",
       "missable": false,
       "watch": false,
-      "guide": "Complete the mission Breakfast Run. Mission trophies pop when the named mission ends — just play the story until Breakfast Run appears and finish it. There is no mission replay, so play it when it comes up.",
+      "guide": "Mission trophies unlock when the named mission ends — play the story until Breakfast Run appears and finish it. There is no mission replay, so do it when it comes up.",
+      "steps": [
+        "Advance the story until Breakfast Run appears.",
+        "Complete the mission."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -126,7 +166,11 @@
       "kind": "story",
       "missable": false,
       "watch": false,
-      "guide": "Complete The Cartel Heist. Heist missions are story missions, so this pops automatically when the heist is done. Bring your best driving: heist getaways are where a fast car and a planned route pay off.",
+      "guide": "The Cartel Heist is a story mission, so this pops automatically once the heist is done. Heist getaways reward a fast car and a planned route — have both ready.",
+      "steps": [
+        "Advance the story to The Cartel Heist.",
+        "Complete the heist — bring a fast car and plan the getaway route."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -138,7 +182,11 @@
       "kind": "story",
       "missable": false,
       "watch": false,
-      "guide": "Complete the mission Child's Play. Another story-mission trophy — it pops when the mission ends. Nothing extra to do; keep following the story.",
+      "guide": "Child's Play is a story mission — finish it and the trophy pops at the end. Nothing extra to do; keep following the story.",
+      "steps": [
+        "Advance the story until Child's Play appears.",
+        "Complete the mission."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -150,7 +198,11 @@
       "kind": "story",
       "missable": false,
       "watch": false,
-      "guide": "Complete the mission Headliners. Finish Headliners as part of the story and the trophy pops at the end of the mission.",
+      "guide": "Headliners is a story mission — finish it and this pops at the end of the mission. No extra objective hides inside it.",
+      "steps": [
+        "Advance the story until Headliners appears.",
+        "Complete the mission."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -162,7 +214,11 @@
       "kind": "story",
       "missable": false,
       "watch": false,
-      "guide": "Complete VCIA Takedown. VCIA is the airport, so expect a vehicle-focused mission — finish the takedown and the trophy pops. It is a story mission, so it cannot be missed as long as you play the story.",
+      "guide": "VCIA is the airport, so expect a vehicle-focused mission — finish the takedown and the trophy pops. It is a story mission, so it cannot be missed as long as you play the story.",
+      "steps": [
+        "Advance the story until VCIA Takedown appears.",
+        "Complete the takedown at the airport."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -174,7 +230,11 @@
       "kind": "story",
       "missable": false,
       "watch": false,
-      "guide": "Complete Operation Savage Glory. The last of the named-mission story trophies; finish the operation and it pops. After the story missions, the roadmap's cleanup stages begin.",
+      "guide": "The last of the named-mission story trophies; finish the operation and it pops. After the story missions, the roadmap's cleanup stages begin.",
+      "steps": [
+        "Advance the story until Operation Savage Glory appears.",
+        "Complete the operation."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -186,7 +246,13 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Attain 100% Completion — the hardest trophy in the set and the gold that gates the platinum. The checklist opens after the story under Progress, Stats, 100% Completion. It is lenient: about 60% of true completion — 200 of 277 vehicles scanned, 100 of 255 animals studied, 50 of 66 weapons, and 70 of 80 challenges. Work on it through the whole game: scan vehicles and study animals as you go, and the checklist fills itself.",
+      "guide": "The hardest trophy in the set and the gold that gates the platinum. The checklist opens after the story under Progress, Stats, 100% Completion. It is lenient — about 60% of true completion: 200 of 277 vehicles scanned, 100 of 255 animals studied, 50 of 66 weapons, and 70 of 80 challenges. Work on it through the whole game: scan vehicles and study animals as you go, and the checklist fills itself.",
+      "steps": [
+        "Finish the story — the 100% checklist opens under Progress, Stats.",
+        "Scan vehicles (200 of 277 needed) and study animals (100 of 255) as you travel.",
+        "Collect 50 of 66 weapons and finish 70 of 80 challenges.",
+        "Shooting Ranges, Drone Races, Robberies, Underwater Discoveries and Bret's quests need everything."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -198,7 +264,12 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Complete 250 stunts. Stunts are stunt jumps, flights under bridges, knife flights and base jumps — 397 exist across the map, and 100% needs 300, so you have room. Chase them while travelling: any jump that triggers the stunt camera counts. The in-game stunt counter tells you where you stand.",
+      "guide": "Stunts are stunt jumps, flights under bridges, knife flights and base jumps — 397 exist across the map, and 100% needs 300, so you have room. Chase them while travelling: any jump that triggers the stunt camera counts. The in-game stunt counter tells you where you stand.",
+      "steps": [
+        "Trigger the stunt camera with jumps, bridge flights, knife flights or base jumps.",
+        "Complete 250 stunts — 397 exist, so you can skip the hardest ones.",
+        "Check the in-game stunt counter to see what is left."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -210,7 +281,11 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Try each type of activity once — all 9 activity types. The activities are the game's side activities (races, fishing, arcade, shooting range, drone races and the rest). Dip into each one once; you do not need to win or finish them, just try them.",
+      "guide": "All 9 activity types, tried once each. The activities are the game's side activities — races, fishing, arcade, shooting range, drone races and the rest. Dip into each one once; you do not need to win or finish them, just try them.",
+      "steps": [
+        "Find each of the 9 activity types across Leonida.",
+        "Try each one once — winning or finishing is not required."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -222,7 +297,12 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Earn a gold medal in all 42 Shooting Range challenges. There are 42 challenges across the ranges; gold each one. Learn the scoring — accuracy and speed beat spraying — and repeat a challenge until the gold medal lands. The range keeps your best medal per challenge.",
+      "guide": "There are 42 challenges across the ranges; gold each one. Learn the scoring — accuracy and speed beat spraying — and repeat a challenge until the gold medal lands. The range keeps your best medal per challenge.",
+      "steps": [
+        "Visit the Shooting Ranges and try the 42 challenges.",
+        "Gold each challenge — accuracy and speed beat spraying.",
+        "Repeat a challenge until the gold medal lands; your best medal is kept."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -234,7 +314,12 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Win a Top Fun Drone Race at every location — 14 locations, 42 races in total. Win at least one race at each of the 14 spots. Learn each course's line; the drone handles like a light aircraft, so cut corners where the course allows.",
+      "guide": "14 locations, 42 races in total — win at least one race at each of the 14 spots. Learn each course's line; the drone handles like a light aircraft, so cut corners where the course allows.",
+      "steps": [
+        "Find the Top Fun Drone Race locations — 14 in total.",
+        "Win at least one race at each location.",
+        "Learn each course's line and cut corners where the course allows."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -246,7 +331,12 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Win 20 different races. Races count per event, so win 20 distinct ones — road races, off-road, boat and air races all count. Vary the vehicle class to suit each course, and retry a race you lose; only the win counts.",
+      "guide": "Races count per event, so win 20 distinct ones — road races, off-road, boat and air races all count. Vary the vehicle class to suit each course, and retry a race you lose; only the win counts.",
+      "steps": [
+        "Enter races across road, off-road, boat and air events.",
+        "Win 20 different races — retry any race you lose.",
+        "Match the vehicle class to each course."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -258,7 +348,12 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Beat Cal in a fishing challenge. Find Cal and take his fishing challenge, then out-fish him: watch the line tension, reel in when the fish runs, and keep the catch rate up. The challenge is a one-on-one, so it is you against his score.",
+      "guide": "Find Cal and take his fishing challenge, then out-fish him: watch the line tension, reel in when the fish runs, and keep the catch rate up. The challenge is a one-on-one, so it is you against his score.",
+      "steps": [
+        "Find Cal and accept his fishing challenge.",
+        "Out-fish him — watch line tension and reel in when the fish runs.",
+        "Beat his score to take the trophy."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -270,7 +365,11 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Complete an arcade game. Find an arcade cabinet and finish one game — any game, any score. It is a single playthrough of one cabinet game, so pick the shortest one.",
+      "guide": "Find an arcade cabinet and finish one game — any game, any score. It is a single playthrough of one cabinet game, so pick the shortest one.",
+      "steps": [
+        "Find an arcade cabinet.",
+        "Finish one game on it — any game, any score."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -282,7 +381,11 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Complete the final mission for Andy. Andy is one of the side characters with a mission strand; play his missions through to the last one. Side-character missions appear as their icons on the map — follow Andy's strand to its end.",
+      "guide": "Andy is one of the side characters with a mission strand; play his missions through to the last one. Side-character missions appear as their icons on the map — follow Andy's strand to its end.",
+      "steps": [
+        "Find Andy's icon on the map and start his mission strand.",
+        "Play his missions through to the final one."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -294,7 +397,11 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Complete the final mission for Kenton. Same pattern as the other character strands: follow Kenton's missions to the last one. Keep an eye on the map for his icon between story missions.",
+      "guide": "Same pattern as the other character strands: follow Kenton's missions to the last one. Keep an eye on the map for his icon between story missions.",
+      "steps": [
+        "Find Kenton's icon on the map and start his mission strand.",
+        "Play his missions through to the final one."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -306,7 +413,11 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Complete the final mission for Billy. Finish Billy's mission strand — his final mission pops this trophy. Character strands can be done after the story, so there is no rush.",
+      "guide": "Finish Billy's mission strand — his final mission pops this trophy. Character strands can be done after the story, so there is no rush.",
+      "steps": [
+        "Find Billy's icon on the map and start his mission strand.",
+        "Play his missions through to the final one — it stays available after the story."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -318,7 +429,12 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Complete 8 mission strands for strangers across Leonida. Stranger missions appear as question-mark icons; finish 8 full strands. Only some side questlines count toward the eight, so keep taking stranger missions until the counter hits 8 — the in-game tracker shows your progress.",
+      "guide": "Stranger missions appear as question-mark icons; finish 8 full strands. Only some side questlines count toward the eight, so keep taking stranger missions until the counter hits 8 — the in-game tracker shows your progress.",
+      "steps": [
+        "Follow question-mark icons to stranger missions.",
+        "Finish full strands until the counter hits 8 — only some questlines count.",
+        "Check the in-game tracker for your progress."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -330,7 +446,11 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Complete the final mission for Randy. Finish Randy's strand to its last mission. Like the other character strands, it stays available after the story.",
+      "guide": "Finish Randy's strand to its last mission. Like the other character strands, it stays available after the story.",
+      "steps": [
+        "Find Randy's icon on the map and start his mission strand.",
+        "Play his missions through to the final one."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -342,7 +462,11 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Complete the final mission for Tyrone. Tyrone's strand ends with this trophy — play his missions through. If his icon is not on the map, advance the story until it appears.",
+      "guide": "Tyrone's strand ends with this trophy — play his missions through. If his icon is not on the map, advance the story until it appears.",
+      "steps": [
+        "Find Tyrone's icon on the map and start his mission strand.",
+        "Play his missions through to the final one."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -354,7 +478,13 @@
       "kind": "activity",
       "missable": true,
       "watch": false,
+      "missableNote": "The first meditation spot is offered at Jason's house in Chapter 1 and becomes permanently unavailable after that chapter — meditate there before Chapter 1 ends.",
       "guide": "Meditate at every spot across Leonida — 18 spots in 10 locations, with Jason and Lucia. THE missable one: the first meditation spot is offered at Jason's house in Chapter 1 and becomes permanently unavailable after that chapter, so meditate there before Chapter 1 ends. After that, work through the remaining spots whenever you pass one.",
+      "steps": [
+        "Meditate at the first spot — Jason's house, Chapter 1 — before the chapter ends; it never comes back.",
+        "Work the other 17 spots across the 10 locations whenever you pass one.",
+        "The trophy pops after the last spot."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx", "gtazone"]
     },
     {
@@ -366,7 +496,12 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Hunt a unique animal for Bret. Bret's quests send you after specific animals; hunt the unique one he asks for and bring it down. Use the binoculars first to study animals — studied animals also count toward the 100% checklist.",
+      "guide": "Bret's quests send you after specific animals; hunt the unique one he asks for and bring it down. Use the binoculars first to study animals — studied animals also count toward the 100% checklist.",
+      "steps": [
+        "Take Bret's quest for a unique animal.",
+        "Study animals with the binoculars first — they count toward 100% too.",
+        "Hunt the unique animal he asked for and bring it down."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -378,7 +513,12 @@
       "kind": "collectible",
       "missable": false,
       "watch": false,
-      "guide": "Complete 3 Collectible Card sets. Cards are hidden around Leonida in sets; collect every card of three full sets. Cards are a pure collectible hunt — sweep each area methodically and check the set lists in your collection to see what is missing.",
+      "guide": "Cards are hidden around Leonida in sets; collect every card of three full sets. Cards are a pure collectible hunt — sweep each area methodically and check the set lists in your collection to see what is missing.",
+      "steps": [
+        "Search Leonida for Collectible Cards, area by area.",
+        "Check the set lists in your collection for what is missing.",
+        "Complete three full sets."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -390,7 +530,11 @@
       "kind": "collectible",
       "missable": false,
       "watch": false,
-      "guide": "WAiNK It at 100 locations. WAiNK spots are scattered across the map — find and use 100 of them. They are quick interactions, so grab every one you pass while doing other things; the counter tracks your total.",
+      "guide": "WAiNK spots are scattered across the map — find and use 100 of them. They are quick interactions, so grab every one you pass while doing other things; the counter tracks your total.",
+      "steps": [
+        "Use WAiNK spots whenever you pass one — they are quick interactions.",
+        "Keep going until the counter hits 100 locations."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -402,7 +546,12 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Complete 50 Challenges. There are 80 challenges in the game and you only need 50 — pick the ones that suit you and skip the hardest. Challenges overlap with the other trophies (races, stunts, shooting), so many will complete themselves while you play.",
+      "guide": "There are 80 challenges in the game and you only need 50 — pick the ones that suit you and skip the hardest. Challenges overlap with the other trophies (races, stunts, shooting), so many will complete themselves while you play.",
+      "steps": [
+        "Open the challenge list and pick the 50 that suit you.",
+        "Many complete themselves while you chase races, stunts and shooting.",
+        "Skip the hardest ones — you only need 50 of 80."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -414,7 +563,12 @@
       "kind": "activity",
       "missable": false,
       "watch": true,
-      "guide": "Lose a 4 star Wanted Level with your partner and escape the heat. Get a 4-star wanted level while your partner is with you, then break line of sight and stay hidden until the stars clear. Use alleys, tunnels and the countryside — and do not get spotted again before the heat dies.",
+      "guide": "Get a 4-star wanted level while your partner is with you, then break line of sight and stay hidden until the stars clear. Use alleys, tunnels and the countryside — and do not get spotted again before the heat dies.",
+      "steps": [
+        "Get a 4-star wanted level with your partner beside you.",
+        "Break line of sight — alleys, tunnels and the countryside work best.",
+        "Stay hidden until the stars clear; do not get spotted again."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -426,7 +580,12 @@
       "kind": "activity",
       "missable": false,
       "watch": true,
-      "guide": "Rob 3 shops back-to-back with your partner without losing your Wanted Level. Rob a shop with your partner, keep the wanted level, then immediately rob two more in a row. Plan a route with three close shops and a fast getaway car, and do not let the wanted level drop between robberies.",
+      "guide": "Rob a shop with your partner, keep the wanted level, then immediately rob two more in a row. Plan a route with three close shops and a fast getaway car, and do not let the wanted level drop between robberies.",
+      "steps": [
+        "Plan a route with three close shops and a fast getaway car.",
+        "Rob the first shop with your partner and keep the wanted level.",
+        "Rob two more shops back-to-back without the wanted level dropping."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -438,7 +597,12 @@
       "kind": "collectible",
       "missable": false,
       "watch": false,
-      "guide": "Discover 100 vehicles. Vehicles count as discovered when you scan them — scan every new vehicle you see (200 of 277 are needed for 100%, so this comes naturally). Keep the scanner out while driving and scan anything unfamiliar.",
+      "guide": "Vehicles count as discovered when you scan them — scan every new vehicle you see (200 of 277 are needed for 100%, so this comes naturally). Keep the scanner out while driving and scan anything unfamiliar.",
+      "steps": [
+        "Keep the scanner out while driving.",
+        "Scan every unfamiliar vehicle you see.",
+        "Discover 100 vehicles — 200 of 277 are needed for 100%, so this comes naturally."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -450,7 +614,11 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Take down 5 enemies in a single use of Combat Focus. Trigger Combat Focus with five enemies in range, then drop all five before it ends. Pick a crowded fight, line up the shots, and let the focus slow time for you.",
+      "guide": "Trigger Combat Focus with five enemies in range, then drop all five before it ends. Pick a crowded fight, line up the shots, and let the focus slow time for you.",
+      "steps": [
+        "Find a crowded fight with at least five enemies in range.",
+        "Trigger Combat Focus, line up the shots and drop all five before it ends."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -462,7 +630,11 @@
       "kind": "activity",
       "missable": false,
       "watch": true,
-      "guide": "Make an unscheduled departure at VCIA. At the airport, take a plane and leave without a scheduled flight — steal one and take off. Expect a wanted level the moment you do it; climb fast and leave the airspace.",
+      "guide": "At the airport, take a plane and leave without a scheduled flight — steal one and take off. Expect a wanted level the moment you do it; climb fast and leave the airspace.",
+      "steps": [
+        "Go to VCIA airport and steal a plane.",
+        "Take off without a scheduled flight — climb fast and leave the airspace."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -474,7 +646,11 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Kinda hot in these Rhinos — get behind the wheel of a Rhino tank. Find a Rhino (military areas are the usual spot) and drive it. The trophy pops once you are in one; surviving the wanted level that follows is your problem, not the trophy's.",
+      "guide": "Get behind the wheel of a Rhino tank. Find a Rhino (military areas are the usual spot) and drive it. The trophy pops once you are in one; surviving the wanted level that follows is your problem, not the trophy's.",
+      "steps": [
+        "Find a Rhino tank — military areas are the usual spot.",
+        "Get in and drive it; the trophy pops once you are behind the wheel."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -486,7 +662,12 @@
       "kind": "activity",
       "missable": false,
       "watch": true,
-      "guide": "Rob a jewelry store without being detected. Case the store, wait for a quiet moment, and get in and out without tripping the alarm or being spotted. Go at night, move slowly, and leave before anyone notices.",
+      "guide": "Case the store, wait for a quiet moment, and get in and out without tripping the alarm or being spotted. Go at night, move slowly, and leave before anyone notices.",
+      "steps": [
+        "Case the jewelry store and wait for a quiet moment — night works best.",
+        "Get in and out without tripping the alarm or being spotted.",
+        "Leave before anyone notices."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -498,7 +679,12 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Rob 5 Bank Vaults and escape. Bank vaults are the big robberies — hit five and get away clean each time. Plan the escape before the robbery: a fast car parked close by and a route out of the wanted zone.",
+      "guide": "Bank vaults are the big robberies — hit five and get away clean each time. Plan the escape before the robbery: a fast car parked close by and a route out of the wanted zone.",
+      "steps": [
+        "Plan each escape first: a fast car parked close by and a route out of the wanted zone.",
+        "Rob a bank vault and get away clean.",
+        "Repeat until five vaults are done."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -510,7 +696,11 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Rob an Armored Truck and escape. Stop an armored truck, crack it, take the cash and escape. Block the road to force it to stop, then move fast — the crew calls for backup quickly.",
+      "guide": "Stop an armored truck, crack it, take the cash and escape. Block the road to force it to stop, then move fast — the crew calls for backup quickly.",
+      "steps": [
+        "Block the road to force an armored truck to stop.",
+        "Crack it, take the cash and escape before backup arrives."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -522,7 +712,11 @@
       "kind": "collectible",
       "missable": false,
       "watch": false,
-      "guide": "Explore all of Leonida. The map has 52 areas; visit them all and the trophy pops. Drive the whole map — every town, beach, swamp and back road — and the area counter tracks what is left.",
+      "guide": "The map has 52 areas; visit them all and the trophy pops. Drive the whole map — every town, beach, swamp and back road — and the area counter tracks what is left.",
+      "steps": [
+        "Drive every town, beach, swamp and back road in Leonida.",
+        "Visit all 52 areas — the area counter tracks what is left."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -534,7 +728,11 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Rob an Illegal Operation belonging to each gang — 9 gangs, 9 operations. Find each gang's illegal operation and rob it. Gangs own different corners of the map, so this is a tour of Leonida's underworld as much as a robbery list.",
+      "guide": "9 gangs, 9 operations — find each gang's illegal operation and rob it. Gangs own different corners of the map, so this is a tour of Leonida's underworld as much as a robbery list.",
+      "steps": [
+        "Find each gang's illegal operation — 9 gangs own 9 corners of the map.",
+        "Rob one operation per gang until all 9 are done."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -546,7 +744,11 @@
       "kind": "activity",
       "missable": false,
       "watch": true,
-      "guide": "Enjoy a cocktail with a view on Ocean Beach. Go to Ocean Beach, find a spot with a view, and order a cocktail. It is a quiet-moment trophy — the game marks the spot when you are in the right place. Guide writers still have this one marked as not yet pinned down, so follow the in-game prompt at the beach.",
+      "guide": "Go to Ocean Beach, find a spot with a view, and order a cocktail. It is a quiet-moment trophy — the game marks the spot when you are in the right place. Guide writers still have this one marked as not yet pinned down, so follow the in-game prompt at the beach.",
+      "steps": [
+        "Go to Ocean Beach and look for the marked spot with a view.",
+        "Order a cocktail there and follow the in-game prompt."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -558,7 +760,11 @@
       "kind": "activity",
       "missable": false,
       "watch": true,
-      "guide": "Smash your way out of a vehicle showroom in classic style. Drive into a vehicle showroom and smash your way out through the glass — the classic GTA exit. Any showroom works; pick one with a clear run out and a fast car.",
+      "guide": "Drive into a vehicle showroom and smash your way out through the glass — the classic GTA exit. Any showroom works; pick one with a clear run out and a fast car.",
+      "steps": [
+        "Pick a vehicle showroom with a clear run out.",
+        "Drive in with a fast car and smash your way out through the glass."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -570,7 +776,11 @@
       "kind": "activity",
       "missable": false,
       "watch": true,
-      "guide": "Follow-through at the Kolt & Associates' bowling alley. Go bowling at the Kolt & Associates alley and finish a game with a proper follow-through. It is one full game of bowling — score does not matter.",
+      "guide": "Go bowling at the Kolt & Associates alley and finish a game with a proper follow-through. It is one full game of bowling — score does not matter.",
+      "steps": [
+        "Go to the Kolt & Associates bowling alley.",
+        "Finish one full game with a proper follow-through — score does not matter."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -582,7 +792,11 @@
       "kind": "activity",
       "missable": false,
       "watch": true,
-      "guide": "A partnership with mass appeal. This one is tied to a partnership moment — the exact trigger is still being pinned down by the guide writers, so play the partner activities and watch for the prompt. PowerPyx lists this among the trophies whose method is not yet confirmed.",
+      "guide": "This one is tied to a partnership moment — the exact trigger is still being pinned down by the guide writers, so play the partner activities and watch for the prompt. PowerPyx lists this among the trophies whose method is not yet confirmed.",
+      "steps": [
+        "Play the partner activities with your partner.",
+        "Watch for the partnership prompt — the exact trigger is still being pinned down."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -594,7 +808,11 @@
       "kind": "activity",
       "missable": false,
       "watch": true,
-      "guide": "Choices made (for better or worse). Your choices across the game feed this one — PSN tracks a count up to 500, so keep making choices and the trophy pops when the count is reached. There is no single moment to hit; it accumulates.",
+      "guide": "Your choices across the game feed this one — PSN tracks a count up to 500, so keep making choices and the trophy pops when the count is reached. There is no single moment to hit; it accumulates.",
+      "steps": [
+        "Keep making choices across the game — PSN tracks a count up to 500.",
+        "There is no single moment to hit; it accumulates and pops at 500."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -606,7 +824,11 @@
       "kind": "activity",
       "missable": false,
       "watch": true,
-      "guide": "Second time's the charm. Fail something once, then succeed on the second try — the trophy is about the retry. Guide writers list this as not yet confirmed, so the exact event is still being pinned down; a failed-then-passed attempt is the pattern to watch for.",
+      "guide": "Fail something once, then succeed on the second try — the trophy is about the retry. Guide writers list this as not yet confirmed, so the exact event is still being pinned down; a failed-then-passed attempt is the pattern to watch for.",
+      "steps": [
+        "Fail an attempt once, then succeed on the second try.",
+        "The exact event is still being pinned down — a failed-then-passed attempt is the pattern to watch for."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -618,7 +840,11 @@
       "kind": "activity",
       "missable": false,
       "watch": true,
-      "guide": "What the hell just happened? Something strange is out there in Leonida — find it and the trophy pops. Also on the not-yet-confirmed list: the exact sighting is still being pinned down by the guide writers.",
+      "guide": "Something strange is out there in Leonida — find it and the trophy pops. Also on the not-yet-confirmed list: the exact sighting is still being pinned down by the guide writers.",
+      "steps": [
+        "Explore Leonida for the strange sighting.",
+        "The exact trigger is still being pinned down by the guide writers."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -630,7 +856,11 @@
       "kind": "activity",
       "missable": false,
       "watch": true,
-      "guide": "Bowl 'em over with a melee drive-by. While driving, swing a melee weapon out of the vehicle and knock someone down — a drive-by without a gun. Slow down beside a pedestrian, swing, and the trophy pops on the hit.",
+      "guide": "While driving, swing a melee weapon out of the vehicle and knock someone down — a drive-by without a gun. Slow down beside a pedestrian, swing, and the trophy pops on the hit.",
+      "steps": [
+        "Drive slowly beside a pedestrian with a melee weapon ready.",
+        "Swing the weapon out of the vehicle and knock them down — the trophy pops on the hit."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -642,7 +872,12 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Earn $250,000 laundering Marked Bills through your contacts. Marked Bills come from robberies; launder them through your contacts until $250,000 is clean. Keep robbing and laundering — the counter tracks the total laundered.",
+      "guide": "Marked Bills come from robberies; launder them through your contacts until $250,000 is clean. Keep robbing and laundering — the counter tracks the total laundered.",
+      "steps": [
+        "Rob to collect Marked Bills.",
+        "Launder them through your contacts.",
+        "Keep going until $250,000 is clean — the counter tracks the total."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -654,7 +889,12 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Spend $100,000 across all shops. Buy things — weapons, clothes, cars, anything — until $100,000 is spent in total. It counts across all shops, so normal play covers much of it; top it up with a big purchase at the end.",
+      "guide": "Buy things — weapons, clothes, cars, anything — until $100,000 is spent in total. It counts across all shops, so normal play covers much of it; top it up with a big purchase at the end.",
+      "steps": [
+        "Buy weapons, clothes, cars — anything — across all shops.",
+        "Normal play covers much of the $100,000.",
+        "Top it up with a big purchase at the end."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -666,7 +906,12 @@
       "kind": "collectible",
       "missable": false,
       "watch": false,
-      "guide": "Purchase all garage properties — 8 in total. Buy every garage property on the map. They cost money, so save up or sell off cars you do not need; the property list shows which ones you still lack.",
+      "guide": "Buy every garage property on the map — 8 in total. They cost money, so save up or sell off cars you do not need; the property list shows which ones you still lack.",
+      "steps": [
+        "Check the property list for the garages you still lack — 8 in total.",
+        "Save up or sell cars you do not need.",
+        "Buy every garage property."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     },
     {
@@ -678,7 +923,11 @@
       "kind": "activity",
       "missable": false,
       "watch": false,
-      "guide": "Register 10 vehicles to the Scooter Bros app. Open the Scooter Bros app and register 10 vehicles you own or find. Any 10 vehicles count — register them as you collect them.",
+      "guide": "Open the Scooter Bros app and register 10 vehicles you own or find. Any 10 vehicles count — register them as you collect them.",
+      "steps": [
+        "Open the Scooter Bros app.",
+        "Register 10 vehicles you own or find — any 10 count."
+      ],
       "sources": ["exophase", "psnprofiles", "powerpyx"]
     }
   ]

@@ -1,5 +1,7 @@
-// Trophy filters: kind, grade, text search, and the spoiler rule.
-// A story trophy stays hidden (name and description replaced) while spoilers are on and it is unearned.
+// Trophy filters v2: kind, grade, text search, the spoiler rule, and the citation
+// counters the masthead stats strip reads (guides, cited steps, sources).
+// A story trophy stays hidden (name and description replaced) while spoilers are on
+// and it is unearned.
 export const kindLabels = {
   all: 'All',
   story: 'Story',
@@ -25,7 +27,7 @@ export function filterTrophies(trophies, filters, earned) {
     if (filters.kind === 'online') return false;
     if (filters.grade !== 'all' && trophy.grade !== filters.grade) return false;
     if (query) {
-      const haystack = `${trophy.name} ${trophy.description} ${trophy.guide}`.toLowerCase();
+      const haystack = `${trophy.name} ${trophy.description} ${trophy.guide} ${(trophy.steps || []).join(' ')}`.toLowerCase();
       if (!haystack.includes(query)) return false;
     }
     return true;
@@ -37,6 +39,24 @@ export function countEarnedByGrade(trophies, earned) {
   const counts = { platinum: 0, gold: 0, silver: 0, bronze: 0 };
   for (const trophy of trophies) {
     if (earned.has(trophy.name)) counts[trophy.grade] += 1;
+  }
+  return counts;
+}
+
+// How many numbered, cited steps the whole guide holds (every step belongs to a
+// guide that names its sources beside it).
+export function countCitedSteps(trophies) {
+  let total = 0;
+  for (const trophy of trophies) total += (trophy.steps || []).length;
+  return total;
+}
+
+// How many trophies cite each source key — the footer strip and the sources view
+// read this so the counts are never typed by hand.
+export function countSourceCitations(trophies) {
+  const counts = {};
+  for (const trophy of trophies) {
+    for (const key of trophy.sources || []) counts[key] = (counts[key] || 0) + 1;
   }
   return counts;
 }
