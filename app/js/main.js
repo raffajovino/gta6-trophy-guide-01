@@ -1,141 +1,140 @@
-// Leonida 55 v2 boot: loads the trophy list and the roadmap, keeps the earned set and
-// the spoiler setting, routes between the four views by location hash, and fills the
-// masthead stats strip and the footer source strip from the data itself — so the
-// counts the judge sees are never typed by hand.
-import { loadProgress, saveProgress, loadSpoilerSetting, saveSpoilerSetting, exportProgress, importProgressFile } from './progressStore.js';
-import { countEarnedByGrade, countCitedSteps, countSourceCitations } from './trophyFilters.js';
-import { renderChecklistView } from './checklistView.js';
-import { renderRoadmapView } from './roadmapView.js';
-import { renderMissablesView } from './missablesView.js';
-import { renderSourcesView } from './sourcesView.js';
+// main.js — boot, hash routing and wiring for Leonida 55.
+// Routes: #/checklist (default), #/roadmap, #/missables, #/sources, #/trophy/<id>.
+// Everything is local: the data is two JSON files under app/, progress lives in
+// localStorage, and the page makes no network request at run time.
+import { loadEarned, saveEarned, toggleEarned, exportProgress, importProgressFile } from "./progressStore.js";
+import { freshFilterState } from "./trophyFilters.js";
+import { renderChecklist, renderDetail } from "./checklistView.js";
+import { renderRoadmap } from "./roadmapView.js";
+import { renderMissables } from "./missablesView.js";
+import { renderSources } from "./sourcesView.js";
 
-const viewRoot = document.getElementById('view');
-const earnedCount = document.getElementById('earnedCount');
-const progressFill = document.getElementById('progressFill');
-const gradeCounts = document.getElementById('gradeCounts');
-const guideStats = document.getElementById('guideStats');
-const sourceStrip = document.getElementById('sourceStrip');
-const tabs = document.querySelectorAll('#viewTabs a');
+const viewEl = document.getElementById("view");
+const detailEl = document.getElementById("detail");
+const tabsEl = document.getElementById("tabs");
+const toolbarEl = document.getElementById("toolbar");
+const searchBox = document.getElementById("searchBox");
+const kindFilter = document.getElementById("kindFilter");
+const gradeFilter = document.getElementById("gradeFilter");
+const spoilerToggle = document.getElementById("spoilerToggle");
+const exportBtn = document.getElementById("exportBtn");
+const importFile = document.getElementById("importFile");
+const statsStrip = document.getElementById("statsStrip");
+const progressFill = document.getElementById("progressFill");
+const progressText = document.getElementById("progressText");
 
-const state = {
-  trophies: [],
-  sources: {},
-  roadmap: null,
-  earned: new Set(),
-  spoilerOn: true,
-  filters: { kind: 'all', grade: 'all', query: '' },
-  selectedId: null,
-  view: 'checklist',
-};
+const VIEWS = ["checklist", "roadmap", "missables", "sources"];
 
-// Refresh the masthead progress (big count, bar, per-grade counts).
-function refreshMasthead() {
-  earnedCount.textContent = String(state.earned.size);
-  progressFill.style.width = `${(state.earned.size / state.trophies.length) * 100}%`;
-  const byGrade = countEarnedByGrade(state.trophies, state.earned);
-  gradeCounts.innerHTML = '';
-  for (const grade of ['platinum', 'gold', 'silver', 'bronze']) {
-    const total = state.trophies.filter((t) => t.grade === grade).length;
-    const span = document.createElement('span');
-    span.innerHTML = `<b>${byGrade[grade]}</b>/${total} ${grade}`;
-    gradeCounts.append(span);
-  }
+function parseHash() {
+  const parts = location.hash.replace(/^#\/?/, "").split("/");
+  const view = VIEWS.includes(parts[0]) ? parts[0] : "checklist";
+  const trophyId = parts[0] === "trophy" && Number.isInteger(Number(parts[1])) ? Number(parts[1]) : null;
+  return { view: trophyId ? "checklist" : view, trophyId };
 }
 
-// Fill the stats strip and the footer source strip from the loaded data: total
-// guides, total cited steps, source count, and per-source citation counts.
-function refreshStats() {
-  const steps = countCitedSteps(state.trophies);
-  const sourceCount = Object.keys(state.sources).length;
-  guideStats.innerHTML = `<b>${state.trophies.length} guides</b> · <b>${steps} cited steps</b> · <b>${sourceCount} sources</b> · every guide cites its sources`;
-  const citations = countSourceCitations(state.trophies);
-  const parts = Object.entries(state.sources).map(([key, source]) => {
-    const short = source.name.split(' — ')[0];
-    return `${short} ×${citations[key] || 0}`;
-  });
-  const dates = [...new Set(Object.values(state.sources).map((s) => s.accessed).filter(Boolean))];
-  sourceStrip.textContent = `Every guide cites its sources — ${parts.join(' · ')}${dates.length ? ` (all accessed ${dates.join(', ')}).` : '.'}`;
-}
-
-// Read the view (and the selected trophy) from the hash: #/checklist, #/roadmap,
-// #/missables, #/sources, #/trophy/<id>.
-function readHash() {
-  const parts = location.hash.replace(/^#\//, '').split('/');
-  if (parts[0] === 'roadmap' || parts[0] === 'missables' || parts[0] === 'sources') {
-    return { view: parts[0], selectedId: null };
-  }
-  if (parts[0] === 'trophy' && Number.isInteger(Number(parts[1]))) {
-    return { view: 'checklist', selectedId: Number(parts[1]) };
-  }
-  return { view: 'checklist', selectedId: null };
-}
-
-function render() {
-  const { view, selectedId } = readHash();
-  state.view = view;
-  state.selectedId = selectedId;
-  for (const tab of tabs) tab.classList.toggle('active', tab.dataset.view === view);
-
-  const ctx = {
-    trophies: state.trophies,
-    sources: state.sources,
-    roadmap: state.roadmap,
-    earned: state.earned,
-    spoilerOn: state.spoilerOn,
-    filters: state.filters,
-    selectedId: state.selectedId,
-    onToggle: (name, checked) => {
-      if (checked) state.earned.add(name);
-      else state.earned.delete(name);
-      saveProgress(state.earned);
-      refreshMasthead();
-      render();
-    },
-    onSelect: (id) => {
-      location.hash = `#/trophy/${id}`;
-    },
-    onFilterChange: (patch) => {
-      Object.assign(state.filters, patch);
-      render();
-    },
-    onSpoilerChange: (on) => {
-      state.spoilerOn = on;
-      saveSpoilerSetting(on);
-      render();
-    },
-    onExport: () => exportProgress(state.earned),
-    onImport: async (file) => {
-      try {
-        state.earned = await importProgressFile(file, state.trophies.map((t) => t.name));
-        saveProgress(state.earned);
-        refreshMasthead();
-        render();
-      } catch (error) {
-        alert(`Could not import that file: ${error.message}`);
-      }
-    },
-  };
-
-  if (view === 'roadmap') renderRoadmapView(viewRoot, ctx);
-  else if (view === 'missables') renderMissablesView(viewRoot, ctx);
-  else if (view === 'sources') renderSourcesView(viewRoot, ctx);
-  else renderChecklistView(viewRoot, ctx);
-}
-
-async function bootGuide() {
-  const [trophyDoc, roadmapDoc] = await Promise.all([
-    (await fetch('data/trophies.json')).json(),
-    (await fetch('data/roadmap.json')).json(),
+async function boot() {
+  const [trophyDoc, roadmap] = await Promise.all([
+    fetch("data/trophies.json").then((r) => r.json()),
+    fetch("data/roadmap.json").then((r) => r.json()),
   ]);
-  state.trophies = trophyDoc.trophies;
-  state.sources = trophyDoc.sources;
-  state.roadmap = roadmapDoc;
-  state.earned = loadProgress(state.trophies.map((t) => t.name));
-  state.spoilerOn = loadSpoilerSetting();
-  window.addEventListener('hashchange', render);
-  refreshMasthead();
-  refreshStats();
+  const trophies = trophyDoc.trophies;
+  const accessed = trophyDoc.accessed ?? "2026-11-20";
+  const byId = new Map(trophies.map((trophy) => [trophy.id, trophy]));
+  const knownIds = new Set(byId.keys());
+  let earned = loadEarned();
+  const state = freshFilterState();
+  let selectedId = null;
+
+  const totalSteps = trophies.reduce((sum, trophy) => sum + trophy.steps.length, 0);
+  const sourceCount = new Set(trophies.flatMap((trophy) => trophy.sources)).size;
+  statsStrip.innerHTML = "";
+  const statsText = document.createElement("span");
+  statsText.innerHTML = `<b>${trophies.length} guides</b> · <b>${totalSteps} cited steps</b> · <b>${sourceCount} sources</b> · every guide cites its sources`;
+  statsStrip.append(statsText);
+
+  function refreshProgress() {
+    progressFill.style.width = `${Math.round((earned.size / trophies.length) * 100)}%`;
+    progressText.textContent = `${earned.size} of ${trophies.length} earned`;
+  }
+
+  function render() {
+    const { view, trophyId } = parseHash();
+    if (trophyId && byId.has(trophyId)) selectedId = trophyId;
+    for (const button of tabsEl.querySelectorAll("button")) {
+      button.classList.toggle("active", button.dataset.view === view);
+    }
+    toolbarEl.style.display = view === "checklist" ? "" : "none";
+    const hooks = {
+      onToggle: (id) => {
+        earned = toggleEarned(earned, id);
+        refreshProgress();
+        render();
+      },
+      onSelect: (id) => {
+        selectedId = id;
+        location.hash = `#/trophy/${id}`;
+        render();
+      },
+    };
+    if (view === "roadmap") {
+      renderRoadmap(viewEl, roadmap, trophies, earned, hooks);
+      detailEl.replaceChildren();
+    } else if (view === "missables") {
+      renderMissables(viewEl, roadmap, trophies, hooks);
+      detailEl.replaceChildren();
+    } else if (view === "sources") {
+      renderSources(viewEl, trophies, accessed);
+      detailEl.replaceChildren();
+    } else {
+      renderChecklist(viewEl, trophies, earned, state, selectedId, hooks);
+      renderDetail(detailEl, selectedId ? byId.get(selectedId) : null, earned, accessed, state.spoiler);
+    }
+  }
+
+  tabsEl.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-view]");
+    if (!button) return;
+    location.hash = `#/${button.dataset.view}`;
+  });
+  searchBox.addEventListener("input", () => {
+    state.query = searchBox.value;
+    render();
+  });
+  kindFilter.addEventListener("change", () => {
+    state.kind = kindFilter.value;
+    render();
+  });
+  gradeFilter.addEventListener("change", () => {
+    state.grade = gradeFilter.value;
+    render();
+  });
+  spoilerToggle.addEventListener("change", () => {
+    state.spoiler = spoilerToggle.checked;
+    render();
+  });
+  exportBtn.addEventListener("click", () => exportProgress(earned));
+  importFile.addEventListener("change", async (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+    try {
+      earned = await importProgressFile(file, knownIds);
+      refreshProgress();
+      render();
+    } catch {
+      alert("That file is not a Leonida 55 progress export.");
+    }
+    event.target.value = "";
+  });
+  window.addEventListener("hashchange", render);
+
+  refreshProgress();
   render();
 }
 
-bootGuide();
+boot().catch((error) => {
+  viewEl.replaceChildren();
+  const message = document.createElement("p");
+  message.className = "empty";
+  message.textContent = `The guide could not load its data (${error.message}). Serve app/ from its own files and reload.`;
+  viewEl.append(message);
+});

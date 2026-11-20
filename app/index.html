@@ -4,33 +4,59 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Leonida 55 — GTA VI Trophy Guide &amp; Tracker</title>
-<link rel="icon" href="data:,">
 <link rel="stylesheet" href="css/guide.css">
 </head>
 <body>
 <header class="masthead">
-  <div class="masthead-title">
-    <h1>LEONIDA 55</h1>
-    <p>GTA VI Trophy Guide &amp; Tracker — all 55 PS5 trophies, offline, in your browser</p>
-    <p class="masthead-sub">1 platinum · 2 gold · 6 silver · 46 bronze · 28 hidden · 0 online · about 200 hours to platinum</p>
-    <p class="masthead-stats" id="guideStats">55 guides · 134 cited steps · 4 sources · every guide cites its sources</p>
+  <div class="brand">
+    <p class="kicker">Grand Theft Auto VI · PlayStation 5</p>
+    <h1>Leonida 55</h1>
+    <p class="tagline">Every trophy — guided, cited, tracked. Works offline, free, open source.</p>
   </div>
-  <div class="masthead-progress">
-    <div class="big-count"><span id="earnedCount">0</span> / 55 earned</div>
-    <div class="progress-track" role="progressbar" aria-label="Trophies earned"><div id="progressFill" class="progress-fill"></div></div>
-    <div id="gradeCounts" class="grade-counts"></div>
+  <div class="masthead-side">
+    <p class="stats-strip" id="statsStrip">Loading the guide…</p>
+    <div class="progress-wrap">
+      <div class="progress-bar"><span id="progressFill"></span></div>
+      <p class="progress-text" id="progressText">0 of 55 earned</p>
+    </div>
   </div>
 </header>
-<nav class="tabs" id="viewTabs" aria-label="Guide sections">
-  <a href="#/checklist" data-view="checklist">Checklist</a>
-  <a href="#/roadmap" data-view="roadmap">Platinum Roadmap</a>
-  <a href="#/missables" data-view="missables">Missables</a>
-  <a href="#/sources" data-view="sources">Sources</a>
+<nav class="tabs" id="tabs" aria-label="Guide sections">
+  <button type="button" data-view="checklist" class="active">Checklist</button>
+  <button type="button" data-view="roadmap">Roadmap</button>
+  <button type="button" data-view="missables">Missables</button>
+  <button type="button" data-view="sources">Sources</button>
 </nav>
-<main id="view"></main>
-<footer class="footnote">
-  <p class="source-strip" id="sourceStrip">Every guide cites its sources — Exophase ×55 · PSNProfiles ×55 · PowerPyx ×55 · GTA-Zone ×1 (all accessed 20 Nov 2026).</p>
-  <p>Guides are written for this page from the official trophy descriptions. Names and descriptions are shown as PlayStation publishes them. No Rockstar logo or artwork is used anywhere. Works fully offline — no network requests.</p>
+<section class="toolbar" id="toolbar">
+  <label class="search">Search <input id="searchBox" type="search" placeholder="Trophy, mission or place…" autocomplete="off"></label>
+  <label>Kind
+    <select id="kindFilter">
+      <option value="all">All kinds</option>
+      <option value="story">Story</option>
+      <option value="missable">Missable</option>
+      <option value="collectibles">Collectibles</option>
+      <option value="activities">Activities</option>
+    </select>
+  </label>
+  <label>Grade
+    <select id="gradeFilter">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label class="spoiler-toggle"><input id="spoilerToggle" type="checkbox"> Hide spoilers</label>
+  <button id="exportBtn" type="button">Export progress</button>
+  <label class="import-btn">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+</section>
+<div class="layout">
+  <main id="view" aria-live="polite"></main>
+  <aside id="detail" aria-label="Trophy guide"></aside>
+</div>
+<footer class="colophon">
+  <p>Leonida 55 — an offline guide to the 55 PlayStation 5 trophies of Grand Theft Auto VI. Trophy names and descriptions are PlayStation's own; every guide is written for this page and cites its sources. No Rockstar artwork, no network: the guide runs entirely from its own files.</p>
 </footer>
 <script type="module" src="js/main.js"></script>
 </body>

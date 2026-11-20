@@ -1,62 +1,36 @@
-// Trophy filters v2: kind, grade, text search, the spoiler rule, and the citation
-// counters the masthead stats strip reads (guides, cited steps, sources).
-// A story trophy stays hidden (name and description replaced) while spoilers are on
-// and it is unearned.
-export const kindLabels = {
-  all: 'All',
-  story: 'Story',
-  missable: 'Missable',
-  collectible: 'Collectibles',
-  activity: 'Activities',
-  online: 'Online',
+// trophyFilters.js — the checklist's filter state and the spoiler rule.
+// Spoiler rule: a hidden trophy shows as "Hidden trophy" until it is earned,
+// and only while the spoiler setting is on. Earned trophies always show.
+export const KIND_LABELS = {
+  story: "Story",
+  missable: "Missable",
+  collectibles: "Collectibles",
+  activities: "Activities",
 };
 
-// True when the spoiler setting hides this trophy's name and description.
-export function isSpoilerHidden(trophy, spoilerOn, earned) {
-  return spoilerOn && trophy.kind === 'story' && !earned.has(trophy.name);
+export function freshFilterState() {
+  return { query: "", kind: "all", grade: "all", spoiler: false };
 }
 
-// Apply every active filter to the trophy list, in display order.
-export function filterTrophies(trophies, filters, earned) {
-  const query = (filters.query || '').trim().toLowerCase();
+export function trophyIsMasked(trophy, earned, state) {
+  return Boolean(state.spoiler && trophy.hidden && !earned.has(trophy.id));
+}
+
+export function filterTrophies(trophies, earned, state) {
+  const needle = state.query.trim().toLowerCase();
   return trophies.filter((trophy) => {
-    if (filters.kind === 'story' && trophy.kind !== 'story') return false;
-    if (filters.kind === 'missable' && !trophy.missable && !trophy.watch) return false;
-    if (filters.kind === 'collectible' && trophy.kind !== 'collectible') return false;
-    if (filters.kind === 'activity' && trophy.kind !== 'activity') return false;
-    if (filters.kind === 'online') return false;
-    if (filters.grade !== 'all' && trophy.grade !== filters.grade) return false;
-    if (query) {
-      const haystack = `${trophy.name} ${trophy.description} ${trophy.guide} ${(trophy.steps || []).join(' ')}`.toLowerCase();
-      if (!haystack.includes(query)) return false;
-    }
-    return true;
+    if (state.kind !== "all" && trophy.kind !== state.kind) return false;
+    if (state.grade !== "all" && trophy.grade !== state.grade) return false;
+    if (!needle) return true;
+    const haystack = `${trophy.name} ${trophy.description} ${trophy.guide}`.toLowerCase();
+    return haystack.includes(needle);
   });
 }
 
-// Count earned trophies per grade for the masthead.
-export function countEarnedByGrade(trophies, earned) {
-  const counts = { platinum: 0, gold: 0, silver: 0, bronze: 0 };
-  for (const trophy of trophies) {
-    if (earned.has(trophy.name)) counts[trophy.grade] += 1;
-  }
-  return counts;
+export function countByKind(trophies, kind) {
+  return trophies.filter((trophy) => trophy.kind === kind).length;
 }
 
-// How many numbered, cited steps the whole guide holds (every step belongs to a
-// guide that names its sources beside it).
-export function countCitedSteps(trophies) {
-  let total = 0;
-  for (const trophy of trophies) total += (trophy.steps || []).length;
-  return total;
-}
-
-// How many trophies cite each source key — the footer strip and the sources view
-// read this so the counts are never typed by hand.
-export function countSourceCitations(trophies) {
-  const counts = {};
-  for (const trophy of trophies) {
-    for (const key of trophy.sources || []) counts[key] = (counts[key] || 0) + 1;
-  }
-  return counts;
+export function countEarnedIn(trophies, earned, ids) {
+  return ids.filter((id) => earned.has(id)).length;
 }

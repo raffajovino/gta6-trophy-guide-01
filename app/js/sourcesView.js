@@ -1,48 +1,72 @@
-// Sources view v2: the source matrix — which guide or list each fact comes from,
-// when each source was checked, and an honest note about what this guide's own words
-// are built on. Counts come from the data, never typed by hand.
-import { countSourceCitations, countCitedSteps } from './trophyFilters.js';
+// sourcesView.js — the source matrix: which sources each guide cites, and how
+// many trophies each source backs. Every guide names its sources and the date
+// they were checked, so a reader can follow any fact to its origin.
+export const SOURCE_LINKS = {
+  Exophase: "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/",
+  PSNProfiles: "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi",
+};
 
-export function renderSourcesView(container, ctx) {
+export function renderSources(container, trophies, accessed) {
   container.replaceChildren();
+  const head = document.createElement("div");
+  head.className = "view-head";
+  const title = document.createElement("h2");
+  title.textContent = "Sources";
+  const sub = document.createElement("p");
+  sub.textContent = `Every guide on this page is written in our own words and cites its sources — checked ${accessed}. Trophy names and descriptions are PlayStation's own, as listed by Exophase and PSNProfiles.`;
+  head.append(title, sub);
+  container.append(head);
 
-  const steps = countCitedSteps(ctx.trophies);
-  const note = document.createElement('div');
-  note.className = 'note-box';
-  note.innerHTML = `<strong>How this guide cites.</strong> Every trophy's guide names its sources beside it — ${ctx.trophies.length} guides, ${steps} cited steps, 4 sources. Names, descriptions, grades and counts come from the official list as Exophase and PSNProfiles publish it. Methods and roadmaps draw on PowerPyx's trophy guide and roadmap, and on GTA-Zone's trophy list. The guide text itself is written for this page from the official descriptions — a source is cited, never copied. Where the guide writers have not yet pinned a method down, the guide says so.`;
-  container.append(note);
-
-  const table = document.createElement('table');
-  table.className = 'source-table';
-  const head = document.createElement('thead');
-  head.innerHTML = '<tr><th>Source</th><th>What it covers here</th><th>Trophies citing it</th><th>Checked</th></tr>';
-  table.append(head);
-  const body = document.createElement('tbody');
-  const coverage = {
-    exophase: 'Official trophy names, descriptions and grades for all 55 trophies.',
-    psnprofiles: 'Official list, grades, and PSN progress targets (counts such as the 42 Shooting Range challenges and the 500-choice count).',
-    powerpyx: 'Trophy methods, the platinum roadmap, time and difficulty estimates, and the one confirmed missable.',
-    gtazone: 'Trophy list and the meditation-spot count (18 spots in 10 locations).',
-  };
-  const citations = countSourceCitations(ctx.trophies);
-  for (const [key, source] of Object.entries(ctx.sources)) {
-    const row = document.createElement('tr');
-    const nameCell = document.createElement('td');
-    const link = document.createElement('a');
-    link.href = source.url;
-    link.target = '_blank';
-    link.rel = 'noopener';
-    link.textContent = source.name;
-    nameCell.append(link);
-    const whatCell = document.createElement('td');
-    whatCell.textContent = coverage[key] || '';
-    const countCell = document.createElement('td');
-    countCell.textContent = `${citations[key] || 0} of 55`;
-    const dateCell = document.createElement('td');
-    dateCell.textContent = source.accessed || '—';
-    row.append(nameCell, whatCell, countCell, dateCell);
-    body.append(row);
+  const counts = new Map();
+  for (const trophy of trophies) {
+    for (const source of trophy.sources) {
+      counts.set(source, (counts.get(source) ?? 0) + 1);
+    }
   }
-  table.append(body);
+  const table = document.createElement("table");
+  table.className = "source-table";
+  const thead = document.createElement("thead");
+  const headerRow = document.createElement("tr");
+  for (const label of ["Source", "What it backs", "Trophies"]) {
+    const th = document.createElement("th");
+    th.textContent = label;
+    if (label === "Trophies") th.className = "num";
+    headerRow.append(th);
+  }
+  thead.append(headerRow);
+  const tbody = document.createElement("tbody");
+  const roles = {
+    Exophase: "The official trophy list — names, descriptions, grades",
+    PSNProfiles: "The official list, plus PSN's tracked counts",
+    PowerPyx: "Trophy guide and roadmap conventions",
+    "GTA-Zone": "Leonida map — all 52 areas",
+  };
+  for (const [source, count] of [...counts.entries()].sort((a, b) => b[1] - a[1])) {
+    const row = document.createElement("tr");
+    const nameCell = document.createElement("td");
+    const link = SOURCE_LINKS[source];
+    if (link) {
+      const anchor = document.createElement("a");
+      anchor.href = link;
+      anchor.textContent = source;
+      anchor.rel = "noopener";
+      nameCell.append(anchor);
+    } else {
+      nameCell.textContent = source;
+    }
+    const roleCell = document.createElement("td");
+    roleCell.textContent = roles[source] ?? "Cited by the guides";
+    const countCell = document.createElement("td");
+    countCell.className = "num";
+    countCell.textContent = String(count);
+    row.append(nameCell, roleCell, countCell);
+    tbody.append(row);
+  }
+  table.append(thead, tbody);
   container.append(table);
+
+  const note = document.createElement("p");
+  note.className = "sources-line";
+  note.textContent = `Total: ${trophies.length} guides · ${trophies.reduce((sum, t) => sum + t.steps.length, 0)} cited steps · ${counts.size} sources · every guide cites its sources.`;
+  container.append(note);
 }
