@@ -3,23 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
-<link rel="stylesheet" href="style.css">
+<title>Leonida 55 — GTA VI Trophy Guide &amp; Tracker</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/guide.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="masthead">
+  <div class="masthead-title">
+    <h1>LEONIDA 55</h1>
+    <p>GTA VI Trophy Guide &amp; Tracker — all 55 PS5 trophies, offline, in your browser</p>
+    <p class="masthead-sub">1 platinum · 2 gold · 6 silver · 46 bronze · 28 hidden · 0 online · about 200 hours to platinum</p>
+  </div>
+  <div class="masthead-progress">
+    <div class="big-count"><span id="earnedCount">0</span> / 55 earned</div>
+    <div class="progress-track" role="progressbar" aria-label="Trophies earned"><div id="progressFill" class="progress-fill"></div></div>
+    <div id="gradeCounts" class="grade-counts"></div>
+  </div>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
-<script type="module" src="app.js"></script>
+<nav class="tabs" id="viewTabs" aria-label="Guide sections">
+  <a href="#/checklist" data-view="checklist">Checklist</a>
+  <a href="#/roadmap" data-view="roadmap">Platinum Roadmap</a>
+  <a href="#/missables" data-view="missables">Missables</a>
+  <a href="#/sources" data-view="sources">Sources</a>
+</nav>
+<main id="view"></main>
+<footer class="footnote">
+  <p>Guides are written for this page from the official trophy descriptions. Names and descriptions are shown as PlayStation publishes them. No Rockstar logo or artwork is used anywhere. Works fully offline — no network requests.</p>
+</footer>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>
